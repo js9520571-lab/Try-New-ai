@@ -1,0 +1,11 @@
+name: Run My AI
+on: [push] # This runs the AI every time you upload code
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run AI Script
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }} # This connects to your secret
+        run: python main.py
